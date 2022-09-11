@@ -1,4 +1,4 @@
-package ch.karimattia.compose_chatbot_framework
+package ch.karimattia.composechatbotframework
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Column

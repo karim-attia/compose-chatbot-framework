@@ -1,4 +1,4 @@
-package ch.karimattia.chatbotcomposelibrary
+package ch.karimattia.composechatbotframework
 
 import org.junit.Test
 
