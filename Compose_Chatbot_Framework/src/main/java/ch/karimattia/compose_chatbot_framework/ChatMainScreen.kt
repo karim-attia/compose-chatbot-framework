@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-@ExperimentalComposeUiApi
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ChatMainScreen(
 	chatViewModel: ChatViewModel,
@@ -45,38 +45,7 @@ fun ChatMainScreen(
 				MessageCard(message = message)
 			}
 		}
+
 		lastMessage?.bottomArea?.invoke()
 	}
 }
-
-/*
-@ExperimentalComposeUiApi
-@Composable
-fun BottomArea(
-	lastMessage: ChatMessage,
-) {
-	// Message proposals
-	// All messageProposals
-	AnimatedVisibility(visible = lastMessage.messageProposals.isNotEmpty(), enter = fadeIn(), exit = ExitTransition.None) {
-		Row(
-			horizontalArrangement = Arrangement.End,
-			modifier = Modifier
-				.fillMaxWidth()
-				.horizontalScroll(state = rememberScrollState())
-		) {
-			for (proposal in lastMessage.messageProposals) {
-				MessageProposal(proposal)
-			}
-		}
-	}
-
-	// TextInput
-	AnimatedVisibility(visible = lastMessage.chatInputField != null, enter = EnterTransition.None, exit = ExitTransition.None) {
-		if (lastMessage.chatInputField != null) {
-			ChatInputField(
-				chatInputField = lastMessage.chatInputField,
-			)
-		}
-	}
-}
-*/

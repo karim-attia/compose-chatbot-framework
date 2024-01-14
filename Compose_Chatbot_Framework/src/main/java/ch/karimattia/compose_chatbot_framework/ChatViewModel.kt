@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.compose.foundation.ScrollState
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,7 +14,6 @@ import kotlinx.coroutines.launch
 @Suppress("unused")
 private const val TAG: String = "ChatViewModel"
 
-@ExperimentalComposeUiApi
 abstract class ChatViewModel : ViewModel() {
 	/**
 	 * Specifies the first message of the message chain

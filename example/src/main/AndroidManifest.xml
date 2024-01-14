@@ -4,14 +4,14 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Compose Chatbot Framework"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ComposeChatbotFramework">
+        android:theme="@android:style/Theme.DeviceDefault.NoActionBar"
+        >
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.ComposeChatbotFramework.NoActionBar"
             android:windowSoftInputMode="adjustResize"
             >
             <intent-filter>
