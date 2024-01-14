@@ -8,6 +8,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
+        // https://jitpack.io/#com.github.karim-attia/ChatbotComposeFramework
         namespace = "ch.karimattia.compose_chatbot_framework"
         minSdk = 28
     }
