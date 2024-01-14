@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("com.google.devtools.ksp")
     id("kotlin-android")
+    `maven-publish`
 }
 
 android {
@@ -31,6 +32,7 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.4"
     }
+
 }
 
 dependencies {
@@ -42,4 +44,18 @@ dependencies {
 
     // Integration with observables
     implementation ("androidx.compose.runtime:runtime-livedata:1.5.4")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "karim-attia"
+                artifactId = "compose-chatbot-framework"
+                version = "1.0.3"
+            }
+        }
+    }
 }
