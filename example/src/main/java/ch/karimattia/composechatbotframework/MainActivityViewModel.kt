@@ -6,7 +6,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -62,7 +63,7 @@ class MainActivityViewModel(scope: CoroutineScope) : ChatViewModel() {
 
     private fun singleMessageProposal(): ChatMessage = ChatMessage(
         text = "You can prompt your user with a single or multiple message proposals.",
-        nextMessage = ::multipleProposals,
+        nextMessage = ::messageProposalExplanation,
         messageProposals = proposalsNext
     )
 
@@ -78,10 +79,17 @@ class MainActivityViewModel(scope: CoroutineScope) : ChatViewModel() {
         isMessageByUser = true,
     )
 
+    private fun messageProposalExplanation(): ChatMessage = ChatMessage(
+        text = "You can define per message proposal which message is shown next.",
+        autoAdvance = true,
+        nextMessage = ::multipleProposals,
+    )
+
     private fun multipleProposals(): ChatMessage = ChatMessage(
         text = "Here's multiple message proposals:",
         messageProposals = multipleMessageProposals()
     )
+
 
     private fun multipleMessageProposals(): List<MessageProposal> = listOf(
         messageProposalOf(
@@ -127,7 +135,7 @@ class MainActivityViewModel(scope: CoroutineScope) : ChatViewModel() {
     )
 
     private fun userWrote(): ChatMessage = ChatMessage(
-        text = "You can add any composable below the message. In the input field, you wrote:",
+        text = "You can add any composable below the message. \nIn the input field, you wrote:",
         nextMessage = ::end,
         autoAdvance = true,
         messageExtra = {
@@ -136,6 +144,7 @@ class MainActivityViewModel(scope: CoroutineScope) : ChatViewModel() {
                 textAlign = TextAlign.Center,
                 fontSize = 12.sp,
                 fontWeight = FontWeight(500),
+                style = MaterialTheme.typography.bodyMedium,
                 color = Color.Black,
                 modifier = Modifier
                     .padding(start = 0.dp, top = 8.dp, bottom = 0.dp)
@@ -150,5 +159,15 @@ class MainActivityViewModel(scope: CoroutineScope) : ChatViewModel() {
 
     private fun end(): ChatMessage = ChatMessage(
         text = "This is the end of the demo. Let me know what you think.",
+        messageProposals = startOver
+    )
+
+    // Message proposal to start over.
+    private val startOver: List<MessageProposal> = listOf(
+        messageProposalOf(
+            proposalAction = { },
+            proposalText = "Start over",
+            insertsMessage = ::introMessage,
+        )
     )
 }

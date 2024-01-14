@@ -12,6 +12,15 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Send
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -44,10 +53,12 @@ fun MessageCard(message: ChatMessage) {
 		Card(
 			modifier = Modifier.widthIn(min = 32.dp, max = 340.dp),
 			shape = cardShapeFor(message), // 3
-			backgroundColor = when {
-				message.isMessageByUser -> MaterialTheme.colors.secondary
-				else -> MaterialTheme.colors.primary
-			},
+			colors = CardDefaults.cardColors(
+				containerColor = when {
+					message.isMessageByUser -> MaterialTheme.colorScheme.secondary
+					else -> MaterialTheme.colorScheme.primary
+				},
+			),
 		) {
 			Column(
 				modifier = Modifier.padding(horizontal = 10.dp, vertical = 8.dp),
@@ -56,9 +67,10 @@ fun MessageCard(message: ChatMessage) {
 					// modifier = Modifier.padding(bottom = 8.dp),
 					text = message.text,
 					color = when {
-						message.isMessageByUser -> MaterialTheme.colors.onSecondary
-						else -> MaterialTheme.colors.onPrimary
+						message.isMessageByUser -> MaterialTheme.colorScheme.onSecondary
+						else -> MaterialTheme.colorScheme.onPrimary
 					},
+					style = MaterialTheme.typography.bodyMedium,
 				)
 				message.messageExtra?.invoke()
 			}
@@ -71,11 +83,18 @@ fun MessageProposal(messageProposal: MessageProposal) {
 	Button(
 		onClick = messageProposal.action,
 		shape = cardShapeFor(isMine = true),
-		colors = ButtonDefaults.buttonColors(backgroundColor = Color.White, contentColor = MaterialTheme.colors.secondary),
-		border = BorderStroke(width = 1.5.dp, color = MaterialTheme.colors.secondary),
+		colors = ButtonDefaults.buttonColors(
+			containerColor = Color.White,
+			contentColor = MaterialTheme.colorScheme.secondary
+		),
+		border = BorderStroke(width = 1.5.dp, color = MaterialTheme.colorScheme.secondary),
 		modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
 	) {
-		Text(text = messageProposal.proposalText, fontWeight = FontWeight.SemiBold)
+		Text(
+			text = messageProposal.proposalText,
+			fontWeight = FontWeight.SemiBold,
+			style = MaterialTheme.typography.bodyMedium,
+		)
 	}
 }
 
@@ -117,15 +136,17 @@ fun ChatInputFieldImpl(
 				}
 			)
 		},
-		colors = TextFieldDefaults.textFieldColors(
-			textColor = MaterialTheme.colors.onBackground,
-			disabledTextColor = Color.Transparent,
-			backgroundColor = Color.White,
+		colors = TextFieldDefaults.colors(
 			focusedIndicatorColor = Color.Transparent,
 			unfocusedIndicatorColor = Color.Transparent,
 			disabledIndicatorColor = Color.Transparent
 		),
-		placeholder = { Text(text = placeholder) },
+		placeholder = {
+			Text(
+				text = placeholder,
+				style = MaterialTheme.typography.bodyMedium,
+				// color = MaterialTheme.colorScheme.onSurface,
+			)},
 		shape = CircleShape,
 		maxLines = 1,
 		keyboardOptions = KeyboardOptions(
@@ -139,10 +160,10 @@ fun ChatInputFieldImpl(
 		),
 		modifier = Modifier
 			.fillMaxWidth()
-			.background(Color.LightGray)
+			// .background(Color.LightGray)
 			.padding(all = 8.dp)
 			.onFocusChanged {
-				Log.d(TAG, "onFocusChanged")
+				// Log.d(TAG, "onFocusChanged")
 				scrollDown()
 			}
 	)
@@ -160,7 +181,11 @@ fun BottomArea(messageProposals: List<MessageProposal>, chatInputField: ChatInpu
 @Composable
 fun MessageProposals(messageProposals: List<MessageProposal>) {
 	// All messageProposals
-	AnimatedVisibility(visible = messageProposals.isNotEmpty(), enter = fadeIn(), exit = fadeOut()) {
+	AnimatedVisibility(
+		visible = messageProposals.isNotEmpty(),
+		enter = fadeIn(),
+		exit = fadeOut()
+	) {
 		Row(
 			horizontalArrangement = Arrangement.End,
 			modifier = Modifier

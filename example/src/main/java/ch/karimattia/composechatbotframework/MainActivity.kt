@@ -3,8 +3,8 @@ package ch.karimattia.composechatbotframework
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -36,13 +36,4 @@ fun Content(mainActivityViewModel: ChatViewModel = viewModel(factory = MainActiv
     ChatMainScreen(
         chatViewModel = mainActivityViewModel
     )
-}
-
-@ExperimentalComposeUiApi
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ComposeChatbotFrameworkTheme {
-        Content()
-    }
 }
