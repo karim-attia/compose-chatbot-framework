@@ -8,7 +8,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        namespace = "ch.karimattia.composechatbotframework"
+        namespace = "ch.karimattia.composechatbotframeworkexample"
         minSdk = 28
     }
 

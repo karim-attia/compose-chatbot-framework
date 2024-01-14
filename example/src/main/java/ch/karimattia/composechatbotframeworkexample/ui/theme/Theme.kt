@@ -1,4 +1,4 @@
-package ch.karimattia.composechatbotframework.ui.theme
+package ch.karimattia.composechatbotframeworkexample.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable

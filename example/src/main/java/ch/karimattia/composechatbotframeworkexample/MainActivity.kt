@@ -1,4 +1,4 @@
-package ch.karimattia.composechatbotframework
+package ch.karimattia.composechatbotframeworkexample
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,10 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.lifecycle.viewmodel.compose.viewModel
-import ch.karimattia.composechatbotframework.ui.theme.ComposeChatbotFrameworkTheme
 import ch.karimattia.compose_chatbot_framework.ChatMainScreen
 import ch.karimattia.compose_chatbot_framework.ChatViewModel
-import ch.karimattia.composechatbotframework.ui.theme.GrayBackgroundColor
+import ch.karimattia.composechatbotframeworkexample.ui.theme.ComposeChatbotFrameworkTheme
+import ch.karimattia.composechatbotframeworkexample.ui.theme.GrayBackgroundColor
 
 @ExperimentalComposeUiApi
 class MainActivity : ComponentActivity() {

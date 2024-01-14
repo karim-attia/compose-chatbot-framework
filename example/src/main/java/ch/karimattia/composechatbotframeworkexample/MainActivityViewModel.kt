@@ -1,4 +1,4 @@
-package ch.karimattia.composechatbotframework
+package ch.karimattia.composechatbotframeworkexample
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.height
@@ -23,6 +23,7 @@ import androidx.lifecycle.ViewModelProvider
 import ch.karimattia.compose_chatbot_framework.ChatMessage
 import ch.karimattia.compose_chatbot_framework.ChatViewModel
 import ch.karimattia.compose_chatbot_framework.MessageProposal
+
 import kotlinx.coroutines.CoroutineScope
 
 @ExperimentalComposeUiApi
