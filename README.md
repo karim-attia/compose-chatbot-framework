@@ -1,0 +1,1 @@
+Check /compose-chatbot-framework/blob/master/example/src/main/java/ch/karimattia/composechatbotframework/MainActivity.kt and /compose-chatbot-framework/blob/master/example/src/main/java/ch/karimattia/composechatbotframework/MainActivityViewModel.kt for an example of how to make it work.
