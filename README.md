@@ -4,4 +4,6 @@ Check [MainActivity](/example/src/main/java/ch/karimattia/composechatbotframewor
 
 Add dependency:
 
-``	implementation("com.github.karim-attia:compose-chatbot-framework:1.0.22")``
+        dependencies {
+	              implementation 'com.github.karim-attia:compose-chatbot-framework:1.0.22'         
+	      }
