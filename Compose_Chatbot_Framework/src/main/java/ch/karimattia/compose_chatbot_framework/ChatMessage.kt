@@ -1,13 +1,10 @@
 package ch.karimattia.compose_chatbot_framework
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.lifecycle.LiveData
 
-@OptIn(ExperimentalComposeUiApi::class)
 typealias MessageBuilder = () -> ChatMessage
 
-@ExperimentalComposeUiApi
 data class ChatMessage (
 	// Text in the chat bubble of this message.
 	val text: String = "",

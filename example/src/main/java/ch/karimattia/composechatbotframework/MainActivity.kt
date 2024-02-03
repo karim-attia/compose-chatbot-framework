@@ -3,19 +3,15 @@ package ch.karimattia.composechatbotframework
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.ExperimentalComposeUiApi
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import ch.karimattia.composechatbotframework.ui.theme.ComposeChatbotFrameworkTheme
 import ch.karimattia.compose_chatbot_framework.ChatMainScreen
 import ch.karimattia.compose_chatbot_framework.ChatViewModel
 import ch.karimattia.composechatbotframework.ui.theme.GrayBackgroundColor
 
-@ExperimentalComposeUiApi
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +26,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@ExperimentalComposeUiApi
 @Composable
 fun Content(mainActivityViewModel: ChatViewModel = viewModel(factory = MainActivityViewModelFactory(scope = rememberCoroutineScope()))) {
     ChatMainScreen(

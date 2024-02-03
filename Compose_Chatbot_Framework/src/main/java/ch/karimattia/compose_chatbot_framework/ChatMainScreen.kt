@@ -7,12 +7,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-@ExperimentalComposeUiApi
 @Composable
 fun ChatMainScreen(
 	chatViewModel: ChatViewModel,
@@ -25,7 +23,6 @@ fun ChatMainScreen(
 	)
 }
 
-@ExperimentalComposeUiApi
 @Composable
 fun ChatMainScreen(
 	shownMessages: List<ChatMessage>,

@@ -9,7 +9,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -25,14 +24,12 @@ import ch.karimattia.compose_chatbot_framework.ChatViewModel
 import ch.karimattia.compose_chatbot_framework.MessageProposal
 import kotlinx.coroutines.CoroutineScope
 
-@ExperimentalComposeUiApi
 class MainActivityViewModelFactory(private val scope: CoroutineScope) :
     ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
         MainActivityViewModel(scope = scope) as T
 }
 
-@ExperimentalComposeUiApi
 class MainActivityViewModel(scope: CoroutineScope) : ChatViewModel() {
 
     init {

@@ -54,5 +54,5 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0'
 
     // Integration with observables
-    implementation 'androidx.compose.runtime:runtime-livedata:1.5.4'
+    implementation 'androidx.compose.runtime:runtime-livedata:1.6.0'
 }

@@ -1,6 +1,5 @@
 package ch.karimattia.compose_chatbot_framework
 
-import android.util.Log
 import androidx.compose.animation.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -9,7 +8,6 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Button
@@ -24,7 +22,6 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
@@ -38,7 +35,6 @@ import androidx.compose.ui.unit.dp
 @Suppress("unused")
 private const val TAG: String = "ChatComponents"
 
-@ExperimentalComposeUiApi
 @Composable
 fun MessageCard(message: ChatMessage) {
 	Column(
@@ -98,7 +94,6 @@ fun MessageProposal(messageProposal: MessageProposal) {
 	}
 }
 
-@ExperimentalComposeUiApi
 @Composable
 fun cardShapeFor(message: ChatMessage): Shape = cardShapeFor(message.isMessageByUser)
 
@@ -111,7 +106,7 @@ fun cardShapeFor(isMine: Boolean): Shape {
 	}
 }
 
-@ExperimentalComposeUiApi
+
 @Composable
 fun ChatInputFieldImpl(
 	chatInputField: ChatInputField,
@@ -169,7 +164,6 @@ fun ChatInputFieldImpl(
 	)
 }
 
-@ExperimentalComposeUiApi
 @Composable
 fun BottomArea(messageProposals: List<MessageProposal>, chatInputField: ChatInputField?) {
 	Column {
@@ -199,7 +193,6 @@ fun MessageProposals(messageProposals: List<MessageProposal>) {
 	}
 }
 
-@ExperimentalComposeUiApi
 @Composable
 fun ChatInputField(chatInputField: ChatInputField?) {
 	// TextInput
